@@ -486,7 +486,7 @@ You can apply the Terraform configuration to your cluster with the following com
 issued from your cluster's inventory directory (`inventory/$CLUSTER`):
 
 ```ShellSession
-terraform -chdir="../../contrib/terraform/openstack" apply -var-file=cluster.tfvars
+terraform -chdir="../../contrib/terraform/openstack" apply -var-file=$(realpath cluster.tfvars)
 ```
 
 if you chose to create a bastion host, this script will create
@@ -501,7 +501,7 @@ pick it up automatically.
 You can destroy your new cluster with the following command issued from the cluster's inventory directory:
 
 ```ShellSession
-terraform -chdir="../../contrib/terraform/openstack" destroy -var-file=cluster.tfvars
+terraform -chdir="../../contrib/terraform/openstack" destroy -var-file=$(realpath cluster.tfvars)
 ```
 
 If you've started the Ansible run, it may also be a good idea to do some manual cleanup:
